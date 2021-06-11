@@ -9,39 +9,13 @@
 </head>
 
 <body>
-    <header>
-        <h1 class="page-title">Code Quiz</h1>
-        <p>Click button below to start the Quiz</p>
-            
-            <!--Timer-->
-            <div id="timer">Time</div>
-    </header>
-
-    <main>
-        <!--Section 1 quiz start content-->
-        <section id="start" class="quiz-section">
-            <p>Test your javascript knowledge with this quiz</p>
-            <p>The rules are simple. Asnswer as many questions as you can before the timer runs out.</p>
-        
-            <button id="start-button">Start Quiz</button>
-        </section>
-
-        <!--Section 2 end quiz title and content-->
-        <section id="end" class="quiz-section hidden">
-            <p id="timer">Time: <span id="time-remaining">0</span></p>
-            <form id="score-submit">
-                <label for="initials">Enter initials:</label>
-                <input type="text" id="initials">
-                <button type="submit">submit</button>
-                
-            </form>
-            <a href="index.html" class="back-button"><i class="circle-check" aria-hidden="true"></i>Back to Quiz</a>
-        </section>
-        <div>
-            <p id="correct" class="choice-status hidden"><i class="circle-check" aria-hidden="true"></i>Correct!</p>
-            <p id="wrong" class="choice-status hidden"><i class="circlex" aria-hidden="true"></i>Not quite, try again!</p>
-        </div>
-    </main>
+    <div class="welcome">
+        <h1 class="welcome">Ready for the CodeQuiz?</h1>
+            <p>The rules are simple, answer as many questions as you can before the time runs out! Goodluck!</p>
+        <button id = "start">Start</button>
+        <h2 id="countdown"></h2>
+        <p id="main"></p>
+    </div>
     
     <script src="./assets/script.js"></script>
 </body>
