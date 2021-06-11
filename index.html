@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="page-title">Code Quiz</h1>
+        <p>Click button below to start the Quiz</p>
+            
+            <!--Timer-->
+            <div id="timer">Time</div>
+    </header>
+
+    <main>
+        <!--Section 1 quiz start content-->
+        <section id="start" class="quiz-section">
+            <p>Test your javascript knowledge with this quiz</p>
+            <p>The rules are simple. Asnswer as many questions as you can before the timer runs out.</p>
+        
+            <button id="start-button">Start Quiz</button>
+        </section>
+
+        <!--Section 2 end quiz title and content-->
+        <section id="end" class="quiz-section hidden">
+            <p id="timer">Time: <span id="time-remaining">0</span></p>
+            <form id="score-submit">
+                <label for="initials">Enter initials:</label>
+                <input type="text" id="initials">
+                <button type="submit">submit</button>
+                
+            </form>
+            <a href="index.html" class="back-button"><i class="circle-check" aria-hidden="true"></i>Back to Quiz</a>
+        </section>
+        <div>
+            <p id="correct" class="choice-status hidden"><i class="circle-check" aria-hidden="true"></i>Correct!</p>
+            <p id="wrong" class="choice-status hidden"><i class="circlex" aria-hidden="true"></i>Not quite, try again!</p>
+        </div>
+    </main>
+    
+    <script src="./assets/script.js"></script>
+</body>
+</html>
