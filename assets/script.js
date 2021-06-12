@@ -48,5 +48,4 @@ function displayMessage() {
   }
    
   startBtn.onclick = countdown;
-  console.log();
   
