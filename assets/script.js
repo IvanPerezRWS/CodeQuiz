@@ -1,4 +1,72 @@
 
+
+
+  // Question variables
+    //Sections lists
+        const quiz_sections = document.getElementById(".quiz-section");
+    //Start function variables
+        const start = document.getElementById("start");
+    //Quiz question variables
+        const quiz_section = document.getElementById("quiz-questions");
+        const question = document.getElementById("question");
+        const choices = document.getElementById("choices");
+        const choice_status = document.getElementById("choice-status");
+        const correct = document.getElementById("correct");
+        const incorrect = document.getElementById("incorrect");
+    // end quiz variables
+        const end_section = document.getElementById("end");
+        const end_title = document.getElementById("end-title");
+        const score = document.getElementById("score");
+        const initials = document.getElementById("initials");
+        const submit_score = document.getElementById("submit-score");
+        const error_message = document.getElementById("error-message");
+  // Question Generation
+  class Question {
+      constructor(question, choices, indexOfCorrectChoice) {
+          this.question = question;
+          this.choices = choices;
+          this.indexOfCorrectChoice = indexOfCorrectChoice;
+      }
+  }
+  const question1 = new Question("A very useful tool used during development and debugging for printing content to the debugger is:",
+    ["JavaScript", "Terminal/Bash", "For loops", "console.log"], 3);
+  const question2 = new Question("String values must be enclosed within _____ when being assinged to variables.",
+    ["Commas", "Curly brackets", "Quotes", "Parenthesis"], 2);
+  const question3 = new Question("Arrays in JavaScript can be used to store_____.",
+    ["Numbers and strings", "Other arrays", "Booleans", "All of the above"], 3);
+  const quesiton4 = new Question("The condition in an if / else statement is enclosed within______.",
+    ["Quotes", "Curly brackets", "Parenthesis", "Square brackets"], 2);
+  const quesiton5 = new Question("Commonly used datatypes DO NOT include: ",
+    ["Strings", "Booleans", "Alerts", "Numbers"], 2);
+
+  const question_list = [question1, question2, question3, quesiton4, quesiton5];
+  let currentquesiton=0;
+
+//------------Start Game---------
+function startGame() {
+    showElement(quiz_sections, quiz_section);
+    countdown();
+    displayQuesiton();
+
+    startTimer();
+}
+
+// --------------- Show and hide elements---------
+
+
+function showElement(siblinglist, showElement) {
+    for (element of siblinglist) {
+        HTMLVideoElement(element);
+    }
+}
+
+function hideElement(element) {
+    if (!element.classList.constains("hidden")) {
+        element.classList.add("hidden");
+    }
+}
+
+//------------- Time ------------------------
 //---------------- Timer Function -------------------
 var timerEl = document.getElementById('countdown');
 var mainEl = document.getElementById('main');
@@ -48,56 +116,5 @@ function displayMessage() {
   }
    
   startBtn.onclick = countdown;
-  // Question variables
-    //Sections lists
-        const quiz_sections = document.getElementById(".quiz-section");
-    //Start function variables
-        const start = document.getElementById("start");
-    //Quiz question variables
-        const quiz_section = document.getElementById("quiz-questions");
-        const question = document.getElementById("question");
-        const choices = document.getElementById("choices");
-        const choice_status = document.getElementById("choice-status");
-        const correct = doucment.getElementById("correct");
-        const incorrect = document.getElementById("incorrect");
-    // end quiz variables
-        const end_section = document.getElementById("end");
-        const end_title = document.getElementById("end-title");
-        const score = document.getElementById("score");
-        const initials = document.getElementById("initials");
-        const submit_score = docuemnt.getElementById("submit-score");
-        const error_message = document.getElementById("error-message");
-  // Question Generation
-  question {
-      constructor(question, choices, indexOfCorrectChoice) {
-          this.question = question;
-          this.choices = choices;
-          this.indexOfCorrectChoice = indexOfCorrectChoice;
-      }
-  }
-  const question1 = new Question("A very useful tool used during development and debugging for printing content to the debugger is:",
-    ["JavaScript", "Terminal/Bash", "For loops", "console.log"], 3);
-  const question2 = new Question("String values must be enclosed within _____ when being assinged to variables.",
-    ["Commas", "Curly brackets", "Quotes", "Parenthesis"] 2);
-  const question3 = new Question("Arrays in JavaScript can be used to store_____.",
-    ["Numbers and strings", "Other arrays", "Booleans", "All of the above"] 3);
-  const quesiton4 = new Question("The condition in an if / else statement is enclosed within______.",
-    ["Quotes", "Curly brackets", "Parenthesis", "Square brackets"] 2);
-  const quesiton5 = new Question("Commonly used datatypes DO NOT include: ",
-    ["Strings", "Booleans", "Alerts", "Numbers"] 2);
 
-  const question_list = [question1, question2, question3, quesiton4, quesiton5];
-  let currentquesiton=0;
-
-//------------Start Game---------
-function startGame() {
-    showElement(quiz_sections, quiz_section);
-    countdown();
-    displayQuesiton();
-
-    startTimer();
-}
-
-// --------------- Show and hide elements---------
-
-
+  console.log()
