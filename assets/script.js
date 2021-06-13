@@ -61,7 +61,7 @@ function showElement(siblinglist, showElement) {
 }
 
 function hideElement(element) {
-    if (!element.classList.constains("hidden")) {
+    if (!element.classList.contains("hidden")) {
         element.classList.add("hidden");
     }
 }
@@ -162,7 +162,7 @@ function displayMessage() {
       return choice === question_list[currentQuestion].indexOfCorrectChoice;
   }
   // incorrect choice functionality
-  function displayIncorrectChoiceEffect {
+  function displayIncorrectChoiceEffect() {
       showElement(choice_status, incorrect);
 
       choiceStatusTimeout = setTimeout(function() {
@@ -185,4 +185,101 @@ function displayMessage() {
       }
   }
 
-  //
+  // ------------- End Game -----------
+  function endGame() {
+      clearInterval(totalTimeInterval);
+
+      showElement(quiz_section, end_section);
+      displayScore();
+      endHeading();
+  }
+
+  function displayScore() {
+      score.textContent = totalTime;
+  }
+
+  function endHeading() {
+      if (totalTime === 0) {
+          end_title.textContent = "You have run out of time!";
+      } else {
+          end_title.textContent = "Good job! You have finished all questions before the timer ran out! I am so proud of you!"
+      }
+  }
+  
+  //----------- Submit Initials -----------------
+  function initialInput(event) {
+      event.preventDefault();
+
+      const intials = initials_input.value.toUpperCase();
+
+      if (inputValid(initials)) {
+          const score  =totalTime;
+          const highScoreEntry = getNewHighScore(initials, score);
+          saveHighScore(highScoreEntry);
+          window.location.href="./scores.html";
+
+      }
+  }
+
+  // setting new highscores
+  function getNewHighScore(initials, score) {
+      const entry = {
+          initials: intials, 
+          score: score,
+      }
+      return entry;
+  }
+  
+  function inputValid(initials) {
+      let errorMessage = "";
+      if (initials === "") {
+          errorMessage = "You cannot submit empty initials.";
+          displayFormError(errorMessage);
+          return false;
+      } else if (initials.match(/[^a-z]/ig)) {
+          errorMessage = "Initials should only consist of letters."
+          displayFormError(errorMessage);
+          return false;
+      } else {
+          return true;
+      }
+  }
+
+  function displayFormError(errorMessage) {
+      error_message.textContent = errorMessage;
+      if (!initials_input.classList.contains("error")) {
+          initials_input.classList.add("error");
+      }
+  }
+
+  function saveHighScore(highScoreEntry) {
+      const currentScore = getScoreList();
+      placeEntryInHighScore(highScoreEntry, currentScore);
+      localStorage.setItem("scoreList", JSON.stringify(currentScores));
+  }
+
+  // get score list
+  function getScoreList() {
+      const currentScore = localStorage.getItem("scoreList");
+      if (currentScores) {
+          return JSON.parse(currentScores);
+      } else {
+          return [];
+      }
+  }
+
+  function placeEntryInHighScore(newEntry, scoreList) {
+      const newScoreIndex = getNewHighScoreIndex(newEntry, scoreList);
+      scoreList.splce(newScoreIndex, 0, newEntry);
+  }
+
+  function getNewHighScoreIndex(newEntry, scoreList) {
+      if (scoreList.length > 0) {
+          for (let i = 0; i < scoreList.length; i++) {
+              if (scorelist[i].score <= newEntry.score) {
+                  return i;
+              }
+          }
+      }
+  return scoreList.length;
+  }
