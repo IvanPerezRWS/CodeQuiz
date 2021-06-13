@@ -288,4 +288,3 @@ function displayMessage() {
   return scoreList.length;
   }
 
-  console.log()
