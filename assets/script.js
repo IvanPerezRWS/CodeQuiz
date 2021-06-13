@@ -43,6 +43,10 @@
   let currentquesiton=0;
 
 //------------Start Game---------
+startBtn.addEventListener('click', startGame);
+choices.addEventListener('click', choiceProcessing);
+submit_score.addEventListener('submit', choiceProcessing);
+
 function startGame() {
     showElement(quiz_sections, quiz_section);
     countdown();
@@ -56,7 +60,7 @@ function startGame() {
 
 function showElement(siblinglist, showElement) {
     for (element of siblinglist) {
-        HTMLVideoElement(element);
+        hideElement(element);
     }
 }
 
@@ -118,7 +122,7 @@ function displayMessage() {
   startBtn.onclick = countdown;
 
   //-------------Questions-----------------
-  function diaplayQuestions() {
+  function displayQuestions() {
       question.textContent = question_list[currentquesiton].question;
       displayChoiceList();
   }
@@ -283,3 +287,5 @@ function displayMessage() {
       }
   return scoreList.length;
   }
+
+  console.log()
