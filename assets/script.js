@@ -162,7 +162,7 @@ function displayMessage() {
       return choice === question_list[currentQuestion].indexOfCorrectChoice;
   }
   // incorrect choice functionality
-  function displayWrongChoiceEffect {
+  function displayIncorrectChoiceEffect {
       showElement(choice_status, incorrect);
 
       choiceStatusTimeout = setTimeout(function() {
@@ -170,3 +170,19 @@ function displayMessage() {
           styleTimeRemainingDefault();
       }, 1000);
   }
+  function displayCorrectChoiceEffect() {
+      showElement(choice, correct);
+      //
+  }
+
+  // Go to next question
+  function getNextQuestion() {
+      currentQuestion++;
+      if (currentQuestion >= question_list.length) {
+          endGame();
+      } else {
+          diaplayQuestions();
+      }
+  }
+
+  //
