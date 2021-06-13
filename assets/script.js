@@ -117,4 +117,56 @@ function displayMessage() {
    
   startBtn.onclick = countdown;
 
-  console.log()
+  //-------------Questions-----------------
+  function diaplayQuestions() {
+      question.textContent = question_list[currentquesiton].question;
+      displayChoiceList();
+  }
+
+  function displayChoiceList() {
+      choices.innerHTML = "";
+
+      question_list[currentquesiton].choices.forEach(function(answer,index) {
+          const li = document.createElement("li");
+          li.dataset.index = index;
+          const button = document.createElement("button");
+          button.textContent = (index + 1) + ". " + answer;
+          li.appendChild(button);
+          choices.appendChild(li);
+      });
+  }
+  //answering quesitons
+  function choiceProcessing(event) {
+      const userChoice = parseInt(event.target.parentElement.dataset.index);
+
+      resetChoice(userChoice);
+      getNextQuestion();
+  }
+  // choice status
+  function resetChoiceStatusEffect() {
+      clearTimeout(choiceStatusTimeout);
+      styleTimeRemainingDefault();
+  }
+
+
+  function checkChoice(userChoice) {
+      if (ChoiceCorrect(userChoice)) {
+          disaplayCorrectChoiceEffect();
+      } else {
+          diaplyWrongChoiceEffect
+      }
+  }
+
+  // correct choice functionality
+  function isChoiceCorrect(choice) {
+      return choice === question_list[currentQuestion].indexOfCorrectChoice;
+  }
+  // incorrect choice functionality
+  function displayWrongChoiceEffect {
+      showElement(choice_status, incorrect);
+
+      choiceStatusTimeout = setTimeout(function() {
+          hideElement(incorrect);
+          styleTimeRemainingDefault();
+      }, 1000);
+  }
