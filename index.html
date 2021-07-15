@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,47 +6,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <!--Link to CSS-->
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
+
+<!--Quiz body text-->
     <header>
         <nav>
             <a href="highscores.html">View Highscores</a>
+            <section>
+                Time left: 75 seconds
+            </section>
         </nav>
     </header>
     <main>
-    <!-- Timer -->
-        <div class="welcome">
-            <h1 class="welcome">Ready for the CodeQuiz?</h1>
-                <p>The rules are simple, answer as many questions as you can before the time runs out! Goodluck!</p>
-            <button id = "start">Start</button>
-            <h2 id="countdown"></h2>
-            <p id="main"></p>
-        </div>
-        <section id="quiz-questions" class="hidden quiz-questions">
-            <p id="main"></p>
-            <h1 id="question">Quiz Question</h1>
-                <ul id="choices"></ul>
+    <!--Header and Welcoming statements-->
+        <section id="start" class="quiz-section">
+            <h1>Coding Quiz Challenge!</h1>
+            <p class="card-text">
+                Try to answer as many questions as possible before the timer runs out.
+            </p>
+            <button id="start-button">Start Quiz</button>
         </section>
-        <section id="end" class="hiden quiz-section">
+        <section id="quiz-questions" class="hidden-quiz-questions">
+            <p id="timer">Time: <span id="time-remaining">0</span></p>
+            <h1 id="question">Quiz Question</h1>
+            <ul id="choices"></ul>
+        </section>
+        <section id="end" class="quiz-questions-hidden">
             <h1 id="end-title">Quiz Completed</h1>
-                <p id="score-text">Your final score is: <span id="score">0</span></p>
-                <form id="submit-score">
-                    <label for="initials">Enter initials:</label>
-                    <input type="text" id="initials">
-                    <button type="submit">Submit</button>
-                    <p id="error-message"></p>
-                </form>
-                <a href="index.html" class="back-button">Back to Quiz</a>
+            <p id="score-text"?>You scored: <span id="score">0</span></p>
+            <form id="submit">
+                <label for="initials">Enter initiials: </label>
+                <input type="text" id="initials">
+                <button type="submit">submit</button>
+            <p id="error-message"></p>
+                
+            </form>
+            <a href="index.html" class="return">Back to Quiz</a>
+            
         </section>
         <div>
-        <p id="correct" class="hidden choice-status"></p>
-        <p id="incorrect" class="hidden choice-status"></p>
+            <p id="correct" class="choice-status hidden">Correct!</p>
+            <p id="incorrect" class="choice-status hidden">Oof! You are wrong.</p>
         </div>
     </main>
 
-    
-    <script src="./assets/script.js"></script>
+<script src="assets/script.js"></script>    
 </body>
 </html>

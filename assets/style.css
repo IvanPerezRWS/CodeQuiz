@@ -7,39 +7,260 @@
 */
 
 * {
-    margin 0;
-    padding: 0;
     box-sizing: border-box;
-}
-body {
-    color: #00fafa;
-    font-family: Helvetica, Arial, sans-serif; 
-    background-color: rgba(1, 56, 88, 0.6);
-}
-
-header {padding:20px 35px;
+  }
+   
+  :root {
+    --primary: #44e9ff;
+    --secondary: #497980;
+    --tertiary: rgb(192, 246, 253);
+    --grey: #333;
+    font-size: 62.5%;
+  }
+   
+  body {
+    background: #ededed;
+    color: var(--grey);
+    margin: 0;
+    padding: 0;
     display: flex;
-    justify-content: space-between;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+   
+  header {
+    background: var(--secondary);
+    padding: 30px 25px;
+    border-bottom: 5px solid var(--primary);
+  }
+   
+  header nav {
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    background-color: #44e9ff;
+    color: black;
+    border-radius: 20px;
+
+    
+  }
+  header p {
+    color: var(--tertiary);
+    margin: 5px 0 20px;
+    font-size: 2rem;
+  }
+   
+  p,
+  li {
+    font-size: 1.6rem;
+  }
+   
+  form {
+    display: flex;
+    align-items: flex-end;
     flex-wrap: wrap;
-    text-shadow: 0 0 10px rgba(0, 225, 255, 0.5);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position-y: 0;
-}
+  }
+   
+  form input {
+    outline: none;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 2.2rem;
+    border: 2px solid var(--grey);
+    border-radius: 12px;
+  }
+   
+  form .form-group {
+    margin: 10px 6px 10px 0;
+    flex: 1;
+  }
+   
+  footer {
+    width: 100%;
+    background: var(--secondary);
+    color: var(--tertiary);
+    font-size: 2.4rem;
+    padding: 20px;
+    border-top: 5px solid var(--primary);
+  }
 
-header a {
-    text-decoration: none;
-    color: #00fafa;
-}
-header a {
-    text-decoration: none;
-    color: #00fafa;
-}
-/*Section style */
-section {
-    padding: 70px;
-}
+  /* quiz body */
+  main {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 25px 0;
+  }
+
+  /* quiz content sytling */
+  #start {
+      text-align: center;
+  }
+  #timer,
+  .choice-status {
+      text-align: center;
+  }
+  #timer {
+      border-bottom: 2px solid #44e9ff ;
+      padding-bottom: 10px;
+      font-size: 1.2 em;
+      font-weight: bold;
+  }
+  #time-remaining {
+      color: black;
+  }
+  #choices {
+      list-style: none;
+  }
+  #choices button {
+      margin: 0%;
+  }
+  .choice-status {
+      font-size: 13px;
+  }
+  #correct {
+      color: black;
+  }
+  #wrong {
+      color: black;
+  }
+
+  #quiz-questions,
+  #end {
+      border-bottom: 2px solid #44e9ff ;
+      padding-bottom: 12px;
+  }
+
+  /*quiz end results*/
+  #score-text {
+      font-size: 1.1em;
+  }
+  #score {
+      font-weight: bold;
+      color: black;
+  }
+
+  /*submit score*/
+  #submit-score {
+      margin-bottom: 15px;
+  }
+  #initials {
+      padding: 5px;
+      box-sizing: border-box;
+  }
+  .error {
+      border: red;
+  }
+  #error-message {
+      color: red;
+      margin-top: 5px;
+  }
+
+  /* highscores page */
 
 
-
+  
+  
+  .btn {
+    outline: none;
+    border: none;
+    display: inline-block;
+    padding: 10px 15px;
+    background: var(--primary);
+    font-size: 2.2rem;
+    border-radius: 12px;
+    position: relative;
+    top: -3px;
+    box-shadow: 0 3px var(--grey);
+  }
+   
+  .btn:hover {
+    box-shadow: 0 2px var(--grey);
+    top: -2px;
+  }
+  .btn:active {
+    box-shadow: 0 0px var(--grey);
+    top: 0;
+  }
+   
+  .edit-btn,
+  .delete-btn {
+    font-size: 1.4rem;
+    padding: 5px 7px;
+    margin: 3px;
+    background: var(--secondary);
+    color: #fff;
+  }
+   
+  .select-dropdown,
+  .select-status {
+    display: block;
+    font-size: 2.2rem;
+    color: #444;
+    padding: 12px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border: 2px solid var(--grey);
+    border-radius: 12px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-image: url("../images/select-arrow.svg");
+    background-repeat: no-repeat, repeat;
+    background-position: right 0.7em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
+  }
+   
+  .select-status {
+    font-size: 1.4rem;
+    padding: 4px 28px 4px 4px;
+    width: auto;
+  }
+   
+  .select-dropdown::-ms-expand,
+  .select-status::-ms-expand {
+    display: none;
+  }
+   
+  .select-dropdown:hover,
+  .select-status:hover {
+    border-color: #888;
+  }
+   
+  .select-dropdown:focus,
+  .select-status:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: #222;
+    outline: none;
+  }
+  .select-dropdown option,
+  .select-status option {
+    font-weight: normal;
+    font-size: 2rem;
+  }
+   
+  @media screen and (max-width: 980px) {
+    form .form-group {
+      flex: 1 100%;
+    }
+   
+    form .form-group button {
+      width: 100%;
+    }
+   
+    .task-list-wrapper {
+      flex-basis: 100%;
+    }
+   
+  }
+  
 
