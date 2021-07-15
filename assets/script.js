@@ -61,7 +61,7 @@ function createHighscoreTableRow(rankCell, scoreCell, initialsCell) {
 function clearHighscores() {
     localStorage.setItem('scoreList', []);
     while (highscores_table.children.length > 1) {
-    (highscores_table.removeChild(highscores_table.lastChild);
+    highscores_table.removeChild(highscores_table.lastChild);
     }
 }
 
